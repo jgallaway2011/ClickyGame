@@ -1,5 +1,5 @@
 # Welcome to Clicky Game: Traveler Edition!
-Clicky Game is a simple react app memory game. The users goal is click all images once without clicking each moe than one time. Enjoy!
+Clicky Game is a simple react app memory game. The users goal is to click all images one time without clicking an image that was previously clicked. Enjoy!
 
 ## Clicky Game will:
 * Shuffle images once any image is clicked
