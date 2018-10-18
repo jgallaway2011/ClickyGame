@@ -26,30 +26,68 @@ class App extends Component {
     clicked: [],
   };
 
+  handleClick = name => {
+    if (this.state.clicked.indexOf(name) === -1) {
+      this.handleIncrement();
+      this.setState({ clicked: this.state.clicked.concat(name) });
+      console.log(this.state.clicked);
+    } else {
+      this.handleReset();
+    }
+  };
+
   handleShuffle = () => {
     let shuffledImages = shuffleImages(images);
     this.setState({ images: shuffledImages });
   };
 
+  handleIncrement = () => {
+    const updatedScore = this.state.currentScore + 1;
+    this.setState({
+      currentScore: updatedScore,
+      message: "That's correct!"
+    });
+    if (updatedScore >= this.state.highScore) {
+      this.setState({ highScore: updatedScore });
+    }
+    if (updatedScore === 12) {
+      this.setState({ message: "You won!" });
+      this.handleReset();
+    }
+    this.handleShuffle();
+  };
+
+  handleReset = () => {
+    this.setState({
+      currentScore: 0,
+      highScore: this.state.highScore,
+      message: "That's incorrect!  You lost!",
+      clicked: []
+    });
+    this.handleShuffle();
+  };
+
   render() {
     return (
       <Wrapper>
-        <Navbar 
-        currentScore={this.state.currentScore}
-        highScore={this.state.highScore}
-        message={this.state.message}
+        <Navbar
+          currentScore={this.state.currentScore}
+          highScore={this.state.highScore}
+          message={this.state.message}
         />
         <Jumbotron />
         <div className="row align-items-center">
-        {this.state.images.map(image => (
-          <ImageCard
-            key={image.id}
-            handleShuffle={this.handleShuffle}
-            name={image.name}
-            id={image.id}
-            image={image.image}
-          />
-        ))}
+          {this.state.images.map(image => (
+            <ImageCard
+              key={image.id}
+              handleClick={this.handleClick}
+              handleShuffle={this.handleShuffle}
+              handleIncrement={this.handleIncrement}
+              name={image.name}
+              id={image.id}
+              image={image.image}
+            />
+          ))}
         </div>
       </Wrapper>
     );
