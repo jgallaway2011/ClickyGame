@@ -42,6 +42,7 @@ class App extends Component {
     this.setState({ images: shuffledImages });
   };
 
+  // Function in increment score when correct selection made
   handleIncrement = () => {
     const updatedScore = this.state.currentScore + 1;
     this.setState({
