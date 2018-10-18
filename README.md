@@ -13,5 +13,5 @@ Clicky Game is a simple react app memory game. The users goal is to click all im
 * Josh Gallaway (https://github.com/jgallaway2011)
 
 ## Future Development Work
-* Issue with game not resetting properly when user has one.  They have to click two times to rest the game currently as opposed to one time!
+* Issue with game not resetting properly when user has won.  They have to click two times to reset the game currently as opposed to one time!
 
