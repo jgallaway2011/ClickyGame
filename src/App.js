@@ -17,11 +17,13 @@ function shuffleImages(array) {
   return array;
 }
 
-
 class App extends Component {
-  // Setting this.state.friends to the friends json array
   state = {
-    images
+    images,
+    currentScore: 0,
+    highScore: 0,
+    message: "Click any image to start the game!",
+    clicked: [],
   };
 
   handleShuffle = () => {
@@ -29,11 +31,14 @@ class App extends Component {
     this.setState({ images: shuffledImages });
   };
 
-  // Map over this.state.friends and render a FriendCard component for each friend object
   render() {
     return (
       <Wrapper>
-        <Navbar />
+        <Navbar 
+        currentScore={this.state.currentScore}
+        highScore={this.state.highScore}
+        message={this.state.message}
+        />
         <Jumbotron />
         <div className="row align-items-center">
         {this.state.images.map(image => (
