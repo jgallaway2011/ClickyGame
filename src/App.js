@@ -32,6 +32,7 @@ class App extends Component {
       this.setState({ clicked: this.state.clicked.concat(name) });
       console.log(this.state.clicked);
     } else {
+      this.setState({ message: "That's incorrect! You lost!" });
       this.handleReset();
     }
   };
@@ -54,14 +55,13 @@ class App extends Component {
       this.setState({ message: "You won!" });
       this.handleReset();
     }
+    if (updatedScore <= 11)
     this.handleShuffle();
   };
 
   handleReset = () => {
     this.setState({
       currentScore: 0,
-      highScore: this.state.highScore,
-      message: "That's incorrect!  You lost!",
       clicked: []
     });
     this.handleShuffle();
