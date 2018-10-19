@@ -26,6 +26,7 @@ class App extends Component {
     clicked: [],
   };
 
+  // Function to handle what to do when user clicks a image
   handleClick = name => {
     if (this.state.clicked.indexOf(name) === -1) {
       this.handleIncrement();
