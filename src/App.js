@@ -70,6 +70,7 @@ class App extends Component {
     this.handleShuffle();
   };
 
+  // Render html to page
   render() {
     return (
       <Wrapper>
