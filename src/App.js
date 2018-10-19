@@ -37,6 +37,7 @@ class App extends Component {
     }
   };
 
+  // Function to trigger shuffle function outsideo of class
   handleShuffle = () => {
     let shuffledImages = shuffleImages(images);
     this.setState({ images: shuffledImages });
