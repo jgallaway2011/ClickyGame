@@ -1,6 +1,6 @@
 {
-  "name": "clicky-game",
   "homepage": "https://jgallaway2011.github.io/ClickyGame",
+  "name": "clicky-game",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,7 +10,7 @@
     "react-scripts": "2.0.4"
   },
   "scripts": {
-    "predeploy": "yarn build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
